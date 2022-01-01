@@ -2,10 +2,10 @@
 cascade:
   headless: true
 description: |
-  A website template for Hugo developed by RStudio & Formspree and available for free.
+  Vårcupen är FFF:s prestigefyllda serietäving som genomförs varje vår (därav namnet).
 show_header: true
 sidebar_left: false
-title: About
+title: Om Värcupen
 ---
 
 ** index doesn't contain a body, just front matter above.
