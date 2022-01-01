@@ -33,7 +33,7 @@ enableEmoji = true
   description = "Sajt för FFF:s tävling Vårcupen"
   favicon = "/img/favicon-16x16.ico"
   logo = "/img/fff_logo_50pct.png"
-  mainSections = ["blog", "project", "talk"]
+  mainSections = ["blog", "talk"]
   navallcaps = false
   # show/hide social icons in site header & footer
   # configure social icons and links below in [[params.social]]
@@ -130,8 +130,8 @@ enableEmoji = true
     weight = 2
   [[menu.header]]
     name = "Regler"
-    title = "Project Portfolio"
-    url = "/project/"
+    title = "Regler"
+    url = "/talk/"
     weight = 3
 
     
