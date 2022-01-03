@@ -1,5 +1,5 @@
 ---
-action_label: Read More &rarr;
+action_label: Läs mer &rarr;
 action_link: /blog
 action_type: text
 description: "FFF:s stora tävling Vårcupen är en stor händelse i fäktvärlden! Här kan du läsa på om allt du behöver veta om tävlingen så som: regler, tävlingsdatum, resultat, poängsammanställning och ta del av alla dom senaste nyheterna om tävlingen."
