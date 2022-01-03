@@ -4,7 +4,7 @@ cascade:
 description: |
   Vårcupen är FFF:s prestigefyllda serietäving som genomförs varje vår (därav namnet).
 show_header: true
-sidebar_left: false
+show_sidebar: false
 title: Om Värcupen
 ---
 
