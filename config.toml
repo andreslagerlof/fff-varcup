@@ -131,8 +131,13 @@ enableEmoji = true
   [[menu.header]]
     name = "Regler"
     title = "Regler"
-    url = "/talk/"
-    weight = 3
+    url = "/regler/"
+    weight = 3    
+#  [[menu.header]]
+#    name = "Diverse"
+#    title = "Diverse"
+#    url = "/talk/"
+#    weight = 4
 
     
   # Configure footer  
