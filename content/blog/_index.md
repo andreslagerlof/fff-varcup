@@ -18,7 +18,7 @@ show_post_thumbnail: true
 sidebar:
   author: Sportchefer
   description: "Se till att ha koll på datumen för Vårcupen år 2022:\n\n- Tisdagen den 25 januari \n- Tisdagen den 15 febuari \n- Tisdagen den 29 mars \n- Tisdagen den 19 april \n- Tisdagen den 17 maj (då segrare koras)"
-  show_sidebar_adunit: true
+  show_sidebar_adunit: false
   text_link_label: 
   text_link_url: /index.xml
   title: Välkommen till Vårcupen 2022!
