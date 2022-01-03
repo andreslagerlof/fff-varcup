@@ -17,7 +17,7 @@ show_post_date: true
 show_post_thumbnail: true
 sidebar:
   author: 
-  description: "Se till att ha koll på datumen för Vårcupen år 2022:\n\n- Tisdagen den 25 januari \n- Tisdagen den 15 febuari \n- Tisdagen den 29 mars \n- Tisdagen den 19 april \n- Tisdagen den 17 maj (segrare koras!)"
+  description: "Se till att ha koll på datumen för Vårcupen år 2022:\n\n- Torsdagen den 27 januari \n- Torsdagen den 24 febuari \n- Torsdagen den 31 mars \n- Torsdagen den 28 april \n- Torsdagen den 19 maj (segrare koras!)"
   show_sidebar_adunit: false
   text_link_label: 
   text_link_url: /index.xml
