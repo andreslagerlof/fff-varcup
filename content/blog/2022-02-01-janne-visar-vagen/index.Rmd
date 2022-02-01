@@ -7,6 +7,27 @@ categories: []
 tags: []
 ---
 
+```{r preparations, message=FALSE, warning=FALSE, include=FALSE}
+# Load  libraries
+library(tidyverse)
+library(here)
+library(janitor)
+library(kableExtra)
+library(blogdown)
+
+# Get data
+results <- read_csv2(here("files", "results2022.csv"))
+
+# Clean data
+results_clean <- results %>%
+  # make long dataframe
+  pivot_longer(!name, names_to = "comp_no", values_to = "place") %>% 
+  # get competition number
+  separate(comp_no, into = c(NA, "comp_no")) %>%
+  clean_names()
+
+```
+
 Äntligen har startskottet för Vårcupen avfyrats! Trots stort manfall på grund av den grasserande pandemin fylldes pouleprotokollen med inte mindre än 13 adrenalinstinna fäktare. Särskilt roligt var att se Louise Ulltjärns tävlingsdebut!
 
 Alla gick in med frenesi i första omgången och ingen mer än Ian som kom ut som 1:a rankad, följd av Janne och efter honom Tor. Dessa tre fäktare fick som tack för sin prestation i första pouleomgången stå över första matchen i direktutslagnigen.
@@ -18,3 +39,30 @@ I semifinalen ställdes Elvira mot CH och Janne mot Tor och denna gång visade s
 Tor kunde också belåtet notera en seger i matchen om tredjeplatsen där han ställts emot Elvira.
 
 Här har ni den slutliga placeringslistan.
+
+```{r source-points-calc, message=FALSE, warning=FALSE, include=FALSE}
+source(here("files", "calculate_points.R"))
+```
+
+```{r make-table, echo=FALSE, message=FALSE, warning=FALSE}
+
+# choose which competitions to include to enable reproducibility
+# in this case the competition 1-3 are selected
+comp_one <- results_clean %>% filter(comp_no == 1)
+
+# Calculate points for the competition
+first_comp <- comp_one %>% calculate_points()
+
+# Prepare data for the result table
+df <- first_comp %>% 
+  # filter for competition
+  filter(comp_no == 1) %>%
+  select(-comp_no) %>% 
+  arrange(place) %>% 
+  drop_na(place) %>% 
+  rename(Namn = name, Placering = place, Poäng = points)
+
+# Create table output using kableExtra package
+kable(df) %>%
+  kable_styling(bootstrap_options = "striped", full_width = F, position = "left")
+```
