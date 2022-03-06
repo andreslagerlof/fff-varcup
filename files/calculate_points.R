@@ -9,7 +9,7 @@ calculate_points <- function(df, place) {
       place == 4 ~ 19,
       between(place, 5, 8) ~ 14,
       between(place, 9, 16) ~  8,
-      TRUE ~ 4
+      between(place, 17, 32) ~ 4
     ))
 }
 
