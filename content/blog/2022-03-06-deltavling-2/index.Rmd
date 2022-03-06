@@ -1,0 +1,120 @@
+---
+title: Spännande 2:a deltävling
+author: Ghost writer
+date: '2022-03-06'
+slug: deltavling-2
+categories: []
+tags: []
+excerpt: "Den 24:e februari fäktades ytterligare en spännande vårcupstävling. Även denna gång avstlutades tävlingskvällen med ett vrål från CH:s strupe. Men ändå var skillnaderna stora från förra deltävlingen. Läs vidare så får ni veta varför."
+---
+
+```{r preparations, message=FALSE, warning=FALSE, include=FALSE}
+# Load  libraries
+library(tidyverse)
+library(here)
+library(janitor)
+library(kableExtra)
+library(blogdown)
+
+# Get data
+results <- read_csv2(here("files", "results2022.csv"))
+
+# Clean data
+results_clean <- results %>%
+  # make long dataframe
+  pivot_longer(!name, names_to = "comp_no", values_to = "place") %>% 
+  # get competition number
+  separate(comp_no, into = c(NA, "comp_no")) %>%
+  clean_names()
+```
+
+```{r source-points-calc, message=FALSE, warning=FALSE, include=FALSE}
+source(here("files", "calculate_points.R"))
+```
+
+## Ett nytt vrål och en ny vinnare
+
+Den 24:e februari fäktades ytterligare en spännande vårcupstävling. Och även denna gång avstlutades tävlingskvällen med ett vrål från CH:s strupe. Men ändå var skillnaderna stora från förra deltävlingen. Läs vidare så får ni veta varför.
+
+Kvällen inleddes med den sedvanliga poulfäktningen. Totalt 16 FFF:are hade skrivit in sig i tävlingen och delades in i 3 inledande pouler. Många tuffa matcher fäktades och när resultatet räknades fram kunde man konstatera att den regerande klubbmästaren Karsten hade utmärkt sig med en ren segerrad och därför gick in i direktelimineringen med en imponerande 1:a ranking.
+
+Endast 2 damfäktare Louise och Sophie deltog denna gång, men båda gjorde bra ifrån sig. Louise pressade Fernando till det yttersta i första direktmatchen, men fick se sig besegrad med en uddastöt. 
+
+I semifinalen ställdes Karsten mot CH och Tor mot Janne. Karsten som hittills varit obeveklig fortsatte på sin inslagna väg och fäktade in sig till final där han fick möjlighet att kämpa om guldplatsen mot Tor som i sin semifinalmatch hade fått Janne på knä.
+
+Efter en intensiv envig tvingades Karsten till sin första förlust för kvällen. Mot Tors attacker som likt trumvirvlar haglade in från alla håll fanns ingen räddning. 
+
+Men varför vrålade CH undrar ni säkert? Jo, de båda rutinerade fäktarna Janne och CH kopplade in samtidigt som finalisterna tog matchen om 3:e platsen betydligt längre tid. Ju längre matchen led desto hårdare tycktes Janne koppla ett grepp om matchen. Men med uppbådande av sina sista krafter CH lyckades hämta upp och jämna ut till ställningen 14-14. Och efter det hördes snart CH:s vål, inte av förtvivlan utan av obeskrivlig glädje.
+
+Så här blev den fullständiga resultattabellen från den 2:a deltävlingen:
+
+```{r make-table, echo=FALSE, message=FALSE, warning=FALSE}
+# choose which competitions to include to enable reproducibility
+# in this case the competition 1-3 are selected
+comp_res <- results_clean %>% 
+  filter(comp_no == 2) %>% 
+  # Calculate points for the competition
+  calculate_points()
+
+# Prepare data for the result table
+df <- comp_res %>%
+  select(-comp_no) %>% 
+  arrange(place) %>% 
+  drop_na(place) %>% 
+  rename(Namn = name, Placering = place, Poäng = points)
+
+# Create table output using kableExtra package
+kable(df) %>%
+  kable_styling(bootstrap_options = "striped", full_width = F, position = "left")
+```
+
+Det innebär att Tor också går upp i en ledning i Vårcupen så här långt, före Janne och CH. Efter två deltävlingar har vi fått följande totalställning:
+
+```{r create-grand-totals-table, echo=FALSE, message=FALSE, warning=FALSE}
+# Create overall standings table ----
+
+## Calculate grand total points for all competitions (1-2)
+total <- results_clean %>% 
+  # filter for competition
+  filter(comp_no < 3) %>%
+  calculate_points() 
+
+# prepare standings table
+piv_total <- total %>%
+  select(-place) %>% 
+  pivot_wider(
+    names_from = comp_no, 
+    values_from = points,
+    names_prefix = "comp_"
+)
+
+## Calculate grand total points for all competitions (1-3)
+grand_tot <- total %>% group_by(name) %>%
+  summarise(sum_points = sum(points, na.rm = TRUE)) %>% 
+  arrange(desc(sum_points))
+# View(grand_tot)
+
+
+# Create new piv df with totals column
+res <- piv_total %>%
+  full_join(grand_tot, by = "name") %>% 
+  arrange(desc(sum_points))
+  
+# Add ranking
+res <- res %>% 
+  mutate(rank = min_rank(desc(sum_points))) %>% 
+  relocate(rank, everything())
+
+# Rename columns for final table Note: change for each competition!!
+standings <- res %>% rename("#" = "rank", "Namn" = "name", 
+                            "1" = "comp_1", "2" = "comp_2",
+                            "Summa Poäng" = "sum_points")
+
+# Create tabel output using kableExtra package
+kable(standings) %>%
+  kable_styling(bootstrap_options = "striped", full_width = F, position = "left")
+```
+
+Träna hårt för redan den 31 mars bär det av igen!
+
+\
