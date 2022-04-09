@@ -5,7 +5,7 @@ date: '2022-03-06'
 slug: deltavling-2
 categories: []
 tags: []
-excerpt: "Den 24:e februari fäktades ytterligare en spännande vårcupstävling. Även denna gång avstlutades tävlingskvällen med ett vrål från CH:s strupe. Men ändå var skillnaderna stora från förra deltävlingen. Läs vidare så får ni veta varför."
+excerpt: "Den 24:e februari fäktades ytterligare en spännande vårcupstävling. Även denna gång avstlutades tävlingskvällen med ett vrål från CH:s strupe. Men ändå var skillnaderna stora från förra deltävlingen. Läs vidare så får ni veta varför. "
 ---
 
 ```{r preparations, message=FALSE, warning=FALSE, include=FALSE}
