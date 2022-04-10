@@ -41,7 +41,11 @@ Helgen innan den 3:e deltävlingen hade FFF:s juniorer och ungdomar slagit fäkt
 
 #### Poulfäktningen
 
-Mycket riktigt tog också den nya generationen ett stadigt tag i taktpinnen direkt från start. Elvira, som förvisso inte längre är junior, gjorde rent hus i sin poule varmed hon på vägen tvingade segraren från den första deltävlingen - Janne - på knä. Ian, som fortfarande var yster efter sin fina 3:e plats på JSM, följde Elviras exempel med en pouleseger. I sin framfart kunde Ian bland andra räkna in CH på sin segerlista. Tor kunde med nöd och näppe tvinga till sig en pouleseger och gick därmed in i direktelimineringen med en 12:e ranking. Bäst av alla öppnade Jakim, som med en slug fäktning kunde glädja sig åt en välförtjänt 1:a ranking efter poulerna.
+Mycket riktigt tog också den nya generationen ett stadigt tag i taktpinnen direkt från start. Elvira som förvisso inte längre är junior men ändå utgör stommen i klubbens framtidsbygge, gjorde rent hus i sin poule. På vägen tvingade hon segraren från den första deltävlingen - Janne - på knä. Tack vare detta gick hon vidare med en 2:a ranking till tävlingens nästa skede.  
+
+Ian, som fortfarande var yster efter sin fina 3:e plats på JSM, följde Elviras exempel genom att, förutom en knapp 4-5 förlust vinna samtliga sina matcher i sin poule och därmed säkra en 3:e ranking till direktelemineringen. I sin framfart kunde Ian bland andra räkna in CH på sin segerlista.  
+
+I den tredje poulen kunde Tor med nöd och näppe tvinga till sig en vunnen match i poulen och gick därmed in i direktelimineringen med en för honom blygsam 12:e ranking. I samma poule höll dock Joakim hov och med en slug fäktning kunde han glädja sig åt en välförtjänt 1:a ranking inför direkteliminationen.
 
 #### Direktelimineringen
 
@@ -80,7 +84,7 @@ df %>% gt()
 
 ```
 
-Med tre genomföra tävlingen kan vi konstatera att Tor har tagit en betryggande tätposition så här långt. Efter honom är det fortfarande de rutinerade fäktarna Janne och CH som håller sig framme, men underifrån kommer utmanarna. Lucas har tagit ett rejält kliv uppåt och Elvira, Ian och Louise är alla bland top 10. Vi kommer säkert att se fler omflyttningar framöver.
+Med tre genomföra tävlingen kan vi konstatera att Tor har tagit en betryggande tätposition så här långt. Efter honom är det fortfarande de rutinerade fäktarna Janne och CH som håller sig framme, men underifrån kommer utmanarna. Lucas har tagit ett rejält kliv uppåt och Elvira, Ian och Louise är alla bland top 10. Notera också att både Karsten och Greger endast deltagit i en deltävling. Med ytterligare två tävlingar att se fram emot kommer vi säkert att se fler omflyttningar i tabellen framöver.
 
 ```{r create-grand-totals-table, echo=FALSE, message=FALSE, warning=FALSE}
 # Create overall standings table ----
